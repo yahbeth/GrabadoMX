@@ -3,68 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GrabadoMX — Personalizados con Láser</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>X-Lasers — Llaveros Grabados con Precisión</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- ══════════════════ LOGIN MODAL ══════════════════ -->
+<!-- ══════ LOGIN MODAL ══════ -->
 <div id="loginModal" onclick="if(event.target===this)hideLogin()">
   <div class="lcard">
     <div class="lcard-top">
-      <span class="lico">🔥</span>
-      <h2>GrabadoMX</h2>
-      <p>Accede a tu cuenta para continuar</p>
+      <div class="lcard-brand">
+        <span class="lx">X</span><span class="ll">-LASERS</span>
+      </div>
+      <p>Accede a tu cuenta</p>
     </div>
     <div class="ltabs">
       <button class="ltab on" onclick="switchTab('in')">Iniciar sesión</button>
       <button class="ltab" onclick="switchTab('up')">Registrarse</button>
     </div>
     <div class="lbody">
-      <!-- Login -->
       <div class="lpanel on" id="panelIn">
-        <div class="lfield">
-          <label>Correo</label>
-          <input type="email" id="li-email" placeholder="correo@email.com">
-        </div>
-        <div class="lfield">
-          <label>Contraseña</label>
-          <input type="password" id="li-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
-        </div>
+        <div class="lfield"><label>Correo</label><input type="email" id="li-email" placeholder="correo@email.com"></div>
+        <div class="lfield"><label>Contraseña</label><input type="password" id="li-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
         <div class="lerr" id="li-err">Correo o contraseña incorrectos.</div>
         <button class="lbtn" onclick="doLogin()">Entrar →</button>
         <div class="ldiv">cuentas demo</div>
         <div class="demos">
           <div class="demo-title">Usuarios de prueba</div>
-          <div class="demo-row">
-            <span><strong>admin@grabado.mx</strong> / <strong>laser123</strong></span>
-            <button class="dfill" onclick="fillDemo('admin@grabado.mx','laser123')">Usar</button>
-          </div>
-          <div class="demo-row">
-            <span><strong>user@grabado.mx</strong> / <strong>madera456</strong></span>
-            <button class="dfill" onclick="fillDemo('user@grabado.mx','madera456')">Usar</button>
-          </div>
+          <div class="demo-row"><span><strong>admin@xlasers.mx</strong> / <strong>laser123</strong></span><button class="dfill" onclick="fillDemo('admin@xlasers.mx','laser123')">Usar</button></div>
+          <div class="demo-row"><span><strong>user@xlasers.mx</strong> / <strong>madera456</strong></span><button class="dfill" onclick="fillDemo('user@xlasers.mx','madera456')">Usar</button></div>
         </div>
       </div>
-      <!-- Registro -->
       <div class="lpanel" id="panelUp">
-        <div class="lfield">
-          <label>Nombre</label>
-          <input type="text" id="up-name" placeholder="Tu nombre">
-        </div>
-        <div class="lfield">
-          <label>Correo</label>
-          <input type="email" id="up-email" placeholder="correo@email.com">
-        </div>
-        <div class="lfield">
-          <label>Contraseña</label>
-          <input type="password" id="up-pass" placeholder="Mínimo 6 caracteres">
-        </div>
-        <div class="lfield">
-          <label>Confirmar contraseña</label>
-          <input type="password" id="up-pass2" placeholder="Repite la contraseña" onkeydown="if(event.key==='Enter')doRegister()">
-        </div>
+        <div class="lfield"><label>Nombre</label><input type="text" id="up-name" placeholder="Tu nombre"></div>
+        <div class="lfield"><label>Correo</label><input type="email" id="up-email" placeholder="correo@email.com"></div>
+        <div class="lfield"><label>Contraseña</label><input type="password" id="up-pass" placeholder="Mínimo 6 caracteres"></div>
+        <div class="lfield"><label>Confirmar contraseña</label><input type="password" id="up-pass2" placeholder="Repite la contraseña" onkeydown="if(event.key==='Enter')doRegister()"></div>
         <div class="lerr" id="up-err">Error al registrarse.</div>
         <button class="lbtn" onclick="doRegister()">Crear cuenta →</button>
       </div>
@@ -72,57 +47,235 @@
   </div>
 </div>
 
-<!-- ══════════════════ LASER BAR ══════════════════ -->
-<div class="laser-bar">
-  <span><div class="dot"></div> Grabado láser de precisión</span>
-  <span>⏱️ Entrega en <b>3–5 días hábiles</b></span>
-  <span>✨ Sube tu diseño o imagen</span>
-</div>
-
-<!-- ══════════════════ NAV ══════════════════ -->
-<nav>
+<!-- ══════ NAV ══════ -->
+<nav id="mainNav">
   <div class="nav-inner">
-    <a class="logo" href="#" onclick="goTo('shop');return false">
-      <div class="logo-icon">🔥</div>
-      <div>
-        <h1>GrabadoMX</h1>
-        <small>Personalizados con láser</small>
+    <a class="logo" href="#" onclick="goTo('home');return false">
+      <div class="logo-x">X</div>
+      <div class="logo-text">
+        <span class="logo-name">-LASERS</span>
+        <span class="logo-sub">Grabado de precisión</span>
       </div>
     </a>
     <div class="nav-tabs">
-      <button class="ntab active" data-p="shop"     onclick="goTo('shop')">    🛍️ <span>Tienda</span></button>
-      <button class="ntab"        data-p="designer" onclick="goTo('designer')">🎨 <span>Diseñar</span></button>
-      <button class="ntab"        data-p="orders"   onclick="goTo('orders')">  ✏️ <span>Pedidos</span></button>
-      <button class="ntab"        data-p="contact"  onclick="goTo('contact')"> 📬 <span>Contacto</span></button>
+      <button class="ntab active" data-p="home"     onclick="goTo('home')">Inicio</button>
+      <button class="ntab"        data-p="shop"     onclick="goTo('shop')">Llaveros</button>
+      <button class="ntab"        data-p="designer" onclick="goTo('designer')">Diseñar</button>
+      <button class="ntab"        data-p="orders"   onclick="goTo('orders')">Pedidos</button>
+      <button class="ntab"        data-p="contact"  onclick="goTo('contact')">Contacto</button>
     </div>
     <div class="nav-right">
-      <button id="loginBtnNav" class="login-btn-nav" onclick="showLogin()">👤 Iniciar sesión</button>
+      <button id="loginBtnNav" class="login-btn-nav" onclick="showLogin()">Iniciar sesión</button>
       <div id="userChip" class="user-chip" onclick="doLogout()" title="Cerrar sesión">
         <div class="uavatar" id="uavatar">U</div>
         <span id="uname">Usuario</span>
-        <span style="font-size:0.6rem;opacity:0.45">✕</span>
+        <span class="chip-x">✕</span>
       </div>
-      <button class="cart-nav-btn" onclick="toggleCart()">🛒 Carrito <span id="cartCount">0</span></button>
+      <button class="cart-nav-btn" onclick="toggleCart()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span id="cartCount">0</span>
+      </button>
     </div>
   </div>
 </nav>
 
 
-<!-- ════════════════════════════════════
-     PÁGINA: TIENDA
-════════════════════════════════════ -->
-<div class="page active" id="page-shop">
+<!-- ════════════════════ PÁGINA: HOME ════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-glow g1"></div>
+      <div class="hero-glow g2"></div>
+      <div class="laser-line ll1"></div>
+      <div class="laser-line ll2"></div>
+      <div class="laser-line ll3"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="eb-dot"></span>
+        Tecnología láser de alta precisión
+        <span class="eb-dot"></span>
+      </div>
+      <h1 class="hero-title">
+        <span class="ht-x">X</span><span class="ht-rest">-LASERS</span>
+        <br>
+        <em class="ht-sub">Grabamos lo que imaginas</em>
+      </h1>
+      <p class="hero-desc">
+        Llaveros personalizados con grabado láser de alta resolución.<br>
+        Tu texto, logo o imagen, grabada para siempre sobre madera de calidad.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-hero-main" onclick="goTo('shop')">Ver llaveros →</button>
+        <button class="btn-hero-sec" onclick="goTo('designer')">Diseñar el mío</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><span class="hstat-n">+500</span><span class="hstat-l">Llaveros grabados</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-n">100%</span><span class="hstat-l">Personalizado</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-n">3–5</span><span class="hstat-l">Días de entrega</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="keychain-showcase">
+        <div class="kc-glow"></div>
+        <svg class="kc-svg" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="wg1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%"   stop-color="#6b3f1a"/>
+              <stop offset="45%"  stop-color="#a06030"/>
+              <stop offset="100%" stop-color="#4e2e0e"/>
+            </linearGradient>
+            <linearGradient id="wshine" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="#f0c060" stop-opacity="0"/>
+              <stop offset="35%"  stop-color="#f0c060" stop-opacity="0.22"/>
+              <stop offset="100%" stop-color="#f0c060" stop-opacity="0"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- Ring -->
+          <circle cx="110" cy="18" r="13" fill="none" stroke="#c87941" stroke-width="3.5"/>
+          <circle cx="110" cy="18" r="6"  fill="none" stroke="#c87941" stroke-width="2"/>
+          <line x1="110" y1="31" x2="110" y2="42" stroke="#c87941" stroke-width="3"/>
+          <!-- Body -->
+          <rect x="20" y="42" width="180" height="120" rx="18" fill="url(#wg1)" stroke="#c87941" stroke-width="1"/>
+          <!-- Wood grain -->
+          <path d="M24 72 Q110 66 196 72" fill="none" stroke="rgba(70,35,10,0.4)" stroke-width="1"/>
+          <path d="M24 88 Q110 82 196 88" fill="none" stroke="rgba(70,35,10,0.3)" stroke-width="1"/>
+          <path d="M24 104 Q110 98 196 104" fill="none" stroke="rgba(70,35,10,0.25)" stroke-width="1"/>
+          <path d="M24 120 Q110 114 196 120" fill="none" stroke="rgba(70,35,10,0.18)" stroke-width="1"/>
+          <!-- Shine -->
+          <rect x="24" y="46" width="22" height="108" rx="8" fill="url(#wshine)"/>
+          <!-- Laser engraving text -->
+          <text x="110" y="97" text-anchor="middle" font-family="Bebas Neue, sans-serif" font-size="22" fill="#ff8c00" opacity="0.9" filter="url(#glow)">X-LASERS</text>
+          <line x1="45" y1="108" x2="175" y2="108" stroke="#ff8c00" stroke-width="0.8" opacity="0.5"/>
+          <text x="110" y="124" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#f0c060" opacity="0.7" letter-spacing="3">GRABADO LÁSER</text>
+          <!-- Laser scan line animation -->
+          <line x1="22" y1="42" x2="198" y2="42" stroke="#ff8c00" stroke-width="1.5" opacity="0.9">
+            <animate attributeName="y1" from="42" to="162" dur="2.5s" repeatCount="indefinite"/>
+            <animate attributeName="y2" from="42" to="162" dur="2.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;0.9;0.9;0" keyTimes="0;0.05;0.95;1" dur="2.5s" repeatCount="indefinite"/>
+          </line>
+          <rect x="22" y="42" width="176" height="4" fill="rgba(255,140,0,0.15)">
+            <animate attributeName="y" from="42" to="158" dur="2.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.05;0.95;1" dur="2.5s" repeatCount="indefinite"/>
+          </rect>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / EMPRESA -->
+  <section class="about-section">
+    <div class="section-inner">
+      <div class="section-label">Sobre nosotros</div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-title">Precisión láser,<br><em>artesanía real</em></h2>
+          <p>En X-Lasers combinamos tecnología de grabado láser de alta resolución con materiales de madera seleccionada para crear llaveros únicos e irrepetibles.</p>
+          <p>Cada pieza es grabada con cuidado, pensando en que sea un regalo o recuerdo que dure toda la vida.</p>
+          <div class="about-badges">
+            <div class="abadge"><span>🔥</span> Láser de alta potencia</div>
+            <div class="abadge"><span>🪵</span> Madera seleccionada</div>
+            <div class="abadge"><span>✉️</span> Envío a todo México</div>
+            <div class="abadge"><span>🎨</span> 100% personalizable</div>
+          </div>
+        </div>
+        <div class="about-features">
+          <div class="feat-card">
+            <div class="feat-icon">⚡</div>
+            <h3>Alta resolución</h3>
+            <p>Grabado láser de 0.05mm de precisión. Detalles finos, letras pequeñas, logos complejos: todo queda perfecto.</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">🪵</div>
+            <h3>Madera premium</h3>
+            <p>Usamos madera seleccionada de primera calidad. Acabado natural, resistente y con veta única en cada pieza.</p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">🎁</div>
+            <h3>Regalo perfecto</h3>
+            <p>Ideal para bodas, graduaciones, empresas y eventos. Pedidos desde una pieza hasta más de 100 unidades.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="process-section">
+    <div class="section-inner">
+      <div class="section-label">¿Cómo funciona?</div>
+      <h2 class="section-title centered">Del diseño a tus manos<br><em>en 4 pasos</em></h2>
+      <div class="process-steps">
+        <div class="pstep">
+          <div class="pstep-num">01</div>
+          <div class="pstep-ico">🎨</div>
+          <h3>Diseña</h3>
+          <p>Elige tu texto, sube tu logo o usa nuestro diseñador visual interactivo.</p>
+        </div>
+        <div class="pstep-arrow">→</div>
+        <div class="pstep">
+          <div class="pstep-num">02</div>
+          <div class="pstep-ico">✅</div>
+          <h3>Confirmamos</h3>
+          <p>Te enviamos una prueba digital del grabado para que apruebes antes de producir.</p>
+        </div>
+        <div class="pstep-arrow">→</div>
+        <div class="pstep">
+          <div class="pstep-num">03</div>
+          <div class="pstep-ico">🔥</div>
+          <h3>Grabamos</h3>
+          <p>Nuestro láser de precisión graba tu diseño sobre madera de calidad.</p>
+        </div>
+        <div class="pstep-arrow">→</div>
+        <div class="pstep">
+          <div class="pstep-num">04</div>
+          <div class="pstep-ico">📦</div>
+          <h3>Enviamos</h3>
+          <p>Empacamos con cuidado y enviamos a todo México en 3–5 días hábiles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="section-inner cta-inner">
+      <h2>¿Listo para tu llavero<br><em>único?</em></h2>
+      <p>Desde $40 MXN. Personaliza ahora y recíbelo en casa.</p>
+      <div class="cta-actions">
+        <button class="btn-hero-main" onclick="goTo('shop')">Pedir ahora →</button>
+        <button class="btn-hero-sec" onclick="goTo('contact')">Hablar con nosotros</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+<!-- ════════════════════ PÁGINA: TIENDA ════════════════════ -->
+<div class="page" id="page-shop">
   <div class="page-wrap">
-    <div class="shop-top">
-      <div class="pg-header" style="margin-bottom:0">
-        <h2>Grabados únicos,<br>regalos <em>eternos.</em></h2>
-        <p>Personalizados con láser de alta precisión. Tu texto, logo o imagen grabada para siempre sobre madera o acero.</p>
+    <div class="shop-header">
+      <div>
+        <div class="section-label">Catálogo</div>
+        <h2 class="section-title">Llaveros<br><em>personalizados</em></h2>
+        <p class="shop-desc">Grabado láser sobre madera premium. Tu diseño, para siempre.</p>
       </div>
       <div class="search-wrap">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
         </svg>
-        <input type="text" id="searchInput" placeholder="Buscar producto..." onkeyup="doSearch()">
+        <input type="text" id="searchInput" placeholder="Buscar…" onkeyup="doSearch()">
       </div>
     </div>
     <div class="products-grid" id="productGrid"></div>
@@ -130,27 +283,22 @@
 </div>
 
 
-<!-- ════════════════════════════════════
-     PÁGINA: DISEÑADOR VISUAL
-════════════════════════════════════ -->
+<!-- ════════════════════ PÁGINA: DISEÑADOR ════════════════════ -->
 <div class="page" id="page-designer">
   <div class="page-wrap">
-    <div class="pg-header">
-      <h2>Diseñador <em>visual</em></h2>
-      <p>Crea tu diseño antes de pedir. Añade texto, elige fuente y color, o sube tu propia imagen / logo. Puedes mover cada elemento libremente sobre el canvas.</p>
-    </div>
+    <div class="section-label">Herramienta</div>
+    <h2 class="section-title" style="margin-bottom:.35rem">Diseñador <em>visual</em></h2>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:2rem;max-width:520px">Posiciona texto e imágenes sobre el llavero. Arrastra cada elemento libremente.</p>
 
     <div class="designer-layout">
-
-      <!-- Canvas -->
       <div class="canvas-panel">
         <div class="canvas-toolbar">
           <button class="tb" onclick="addText()">＋ Texto</button>
           <div class="tsep"></div>
-          <button class="tb" onclick="mv(-1,0)" title="Mover izquierda">←</button>
-          <button class="tb" onclick="mv(0,-1)" title="Mover arriba">↑</button>
-          <button class="tb" onclick="mv(0,1)"  title="Mover abajo">↓</button>
-          <button class="tb" onclick="mv(1,0)"  title="Mover derecha">→</button>
+          <button class="tb" onclick="mv(-1,0)">←</button>
+          <button class="tb" onclick="mv(0,-1)">↑</button>
+          <button class="tb" onclick="mv(0,1)">↓</button>
+          <button class="tb" onclick="mv(1,0)">→</button>
           <div class="tsep"></div>
           <button class="tb" onclick="bringFwd()">▲</button>
           <button class="tb" onclick="sendBack()">▼</button>
@@ -163,17 +311,7 @@
         </div>
       </div>
 
-      <!-- Controls -->
       <div class="ctrl-panel">
-
-        <div class="ctrl-sec">
-          <div class="clabel">📦 Producto a visualizar</div>
-          <div class="prod-sw">
-            <button class="psw-btn active" id="psw-termo"   onclick="setProduct('Termo')">🧊 Termo</button>
-            <button class="psw-btn"        id="psw-llavero" onclick="setProduct('Llavero')">🪵 Llavero</button>
-          </div>
-        </div>
-
         <div class="ctrl-sec">
           <div class="clabel">✍️ Texto</div>
           <input class="cinput" id="d-text" type="text" placeholder="Escribe tu texto…" maxlength="80" oninput="updateText()">
@@ -185,9 +323,9 @@
             <option value="fantasy">Decorativa</option>
           </select>
           <div class="slider-row">
-            <span style="font-size:0.68rem;color:var(--text-dim);font-weight:600;">Tamaño</span>
-            <input class="cslider" id="d-size" type="range" min="10" max="96" value="34" oninput="updateSize()">
-            <span class="slider-val" id="d-size-lbl">34px</span>
+            <span class="sl-lbl">Tamaño</span>
+            <input class="cslider" id="d-size" type="range" min="10" max="96" value="28" oninput="updateSize()">
+            <span class="slider-val" id="d-size-lbl">28px</span>
           </div>
         </div>
 
@@ -215,7 +353,7 @@
             <p class="uz-txt">Haz clic o arrastra tu imagen<br><span class="uz-sub">PNG · JPG · SVG · WEBP</span></p>
           </div>
           <div id="imgControls" style="margin-top:0.65rem;">
-            <div class="clabel" style="margin-bottom:0.4rem;">↔️ Tamaño imagen</div>
+            <div class="clabel" style="margin-bottom:0.4rem;">↔️ Tamaño</div>
             <div class="slider-row">
               <input class="cslider" id="img-scale" type="range" min="10" max="300" value="100" oninput="updateImgScale()">
               <span class="slider-val" id="img-scale-lbl">100%</span>
@@ -232,37 +370,30 @@
           <button class="btn-primary" onclick="addDesignToCart()">+ Agregar al carrito →</button>
           <button class="btn-sec" onclick="downloadPreview()">⬇ Descargar vista previa</button>
         </div>
-
       </div>
     </div>
   </div>
 </div>
 
 
-<!-- ════════════════════════════════════
-     PÁGINA: PEDIDOS PERSONALIZADOS
-════════════════════════════════════ -->
+<!-- ════════════════════ PÁGINA: PEDIDOS ════════════════════ -->
 <div class="page" id="page-orders">
   <div class="page-wrap">
-    <div class="pg-header">
-      <h2>Pedido <em>personalizado</em></h2>
-      <p>Mándanos los detalles de tu diseño y nos ponemos en contacto para confirmar el grabado, el presupuesto y la fecha de entrega.</p>
-    </div>
+    <div class="section-label">Personalizado</div>
+    <h2 class="section-title" style="margin-bottom:.35rem">Pedido <em>a medida</em></h2>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:2rem;max-width:520px">Cuéntanos lo que necesitas y te enviamos diseño y cotización en 24 h.</p>
 
     <div class="steps">
-      <div class="step"><div class="snum">1</div><div class="stitle">Rellena el formulario</div><div class="ssub">Producto, texto y cantidad</div></div>
-      <div class="step"><div class="snum">2</div><div class="stitle">Confirmamos diseño</div><div class="ssub">Te enviamos una prueba</div></div>
-      <div class="step"><div class="snum">3</div><div class="stitle">Grabamos y enviamos</div><div class="ssub">3–5 días hábiles</div></div>
-      <div class="step"><div class="snum">4</div><div class="stitle">¡Listo!</div><div class="ssub">Regalo único en tus manos</div></div>
+      <div class="step"><div class="snum">1</div><div class="stitle">Rellena el formulario</div><div class="ssub">Producto y texto</div></div>
+      <div class="step"><div class="snum">2</div><div class="stitle">Confirmamos diseño</div><div class="ssub">Te enviamos prueba</div></div>
+      <div class="step"><div class="snum">3</div><div class="stitle">Grabamos</div><div class="ssub">Precisión láser</div></div>
+      <div class="step"><div class="snum">4</div><div class="stitle">¡Listo!</div><div class="ssub">Envío a domicilio</div></div>
     </div>
 
     <div class="form-card">
       <div class="form-card-hd">
         <div class="fhd-icon">✏️</div>
-        <div>
-          <h3>Formulario de pedido</h3>
-          <p>Todos los campos con * son obligatorios</p>
-        </div>
+        <div><h3>Formulario de pedido</h3><p>Campos con * son obligatorios</p></div>
       </div>
       <div class="form-body">
         <div class="frow">
@@ -273,20 +404,19 @@
           <div class="ffield">
             <label>Producto *</label>
             <select id="or-product">
-              <option value="">Selecciona un producto</option>
-              <option>Termo personalizado</option>
+              <option value="">Selecciona</option>
               <option>Llavero de madera personalizado</option>
-              <option>Combo Termo + Llavero</option>
+              <option>Pack 5 llaveros</option>
+              <option>Pack 10 llaveros</option>
+              <option>Pedido mayoreo (+20 piezas)</option>
             </select>
           </div>
           <div class="ffield">
             <label>Cantidad *</label>
             <select id="or-qty">
               <option value="">Cantidad</option>
-              <option>1 pieza</option>
-              <option>2–5 piezas</option>
-              <option>6–10 piezas</option>
-              <option>11–20 piezas</option>
+              <option>1 pieza</option><option>2–5 piezas</option>
+              <option>6–10 piezas</option><option>11–20 piezas</option>
               <option>Más de 20 piezas</option>
             </select>
           </div>
@@ -295,18 +425,17 @@
           <label>Texto a grabar *</label>
           <input type="text" id="or-text" placeholder="Ej: «Para siempre juntos — Ana & Luis»" maxlength="60" oninput="updateOrderPreview()">
         </div>
-        <!-- Vista previa -->
         <div class="preview-live">
-          <div class="prev-ico" id="pr-ico">🪵</div>
+          <div class="prev-ico">🪵</div>
           <div>
             <div class="prev-lbl">Vista previa del grabado</div>
             <div class="prev-txt" id="pr-txt">Tu texto aparecerá aquí…</div>
-            <div class="prev-sub" id="pr-sub">Selecciona un producto arriba</div>
+            <div class="prev-sub" id="pr-sub">Llavero de madera personalizado</div>
           </div>
         </div>
         <div class="ffield">
           <label>Notas adicionales</label>
-          <textarea id="or-notes" placeholder="Fuente preferida, imagen de referencia, fecha límite, etc."></textarea>
+          <textarea id="or-notes" placeholder="Fuente, imagen de referencia, fecha límite…"></textarea>
         </div>
         <div class="frow">
           <div class="ffield"><label>WhatsApp / Teléfono</label><input type="tel" id="or-phone" placeholder="+52 (55) 0000-0000"></div>
@@ -319,34 +448,31 @@
             </select>
           </div>
         </div>
-        <button class="btn-primary" style="max-width:280px" onclick="submitOrder()">Enviar pedido →</button>
+        <button class="btn-primary" style="max-width:260px" onclick="submitOrder()">Enviar pedido →</button>
       </div>
     </div>
 
     <div class="ord-confirm" id="ordConfirm">
       <div class="cico">🎉</div>
       <h3>¡Pedido recibido!</h3>
-      <div class="ord-num" id="ordNum">#GRB-0000</div>
-      <p>Te contactamos en las próximas <strong>24 horas hábiles</strong> para confirmar el diseño y darte tu cotización. ¡Gracias por confiar en GrabadoMX!</p>
+      <div class="ord-num" id="ordNum">#XL-0000</div>
+      <p>Te contactamos en <strong>24 horas hábiles</strong> para confirmar el diseño y cotización. ¡Gracias por elegir X-Lasers!</p>
     </div>
   </div>
 </div>
 
 
-<!-- ════════════════════════════════════
-     PÁGINA: CONTACTO
-════════════════════════════════════ -->
+<!-- ════════════════════ PÁGINA: CONTACTO ════════════════════ -->
 <div class="page" id="page-contact">
   <div class="page-wrap">
-    <div class="pg-header">
-      <h2>¿Tienes <em>dudas?</em></h2>
-      <p>Estamos para ayudarte. Escríbenos, llámanos o visítanos. Respondemos en menos de 24 horas hábiles.</p>
-    </div>
+    <div class="section-label">Contacto</div>
+    <h2 class="section-title" style="margin-bottom:.35rem">¿Tienes <em>dudas?</em></h2>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:2rem">Respondemos en menos de 24 horas hábiles.</p>
     <div class="contact-grid">
       <div class="cinfo">
         <div class="ccard"><div class="ccard-ico">📱</div><div><h4>WhatsApp / Teléfono</h4><p><a href="tel:+524921741845">+52 492-174-1845</a><br><a href="#">Escríbenos por WhatsApp</a></p></div></div>
-        <div class="ccard"><div class="ccard-ico">📧</div><div><h4>Correo electrónico</h4><p><a href="#">hola@grabadoMX.mx</a><br><a href="#">pedidos@grabadoMX.mx</a></p></div></div>
-        <div class="ccard"><div class="ccard-ico">📸</div><div><h4>Redes sociales</h4><p><a href="https://www.instagram.com/grabadolaserm">@grabadolaserm</a> en Instagram<br><a href="#">GrabadoMX Oficial</a> en Facebook</p></div></div>
+        <div class="ccard"><div class="ccard-ico">📧</div><div><h4>Correo</h4><p><a href="#">hola@x-lasers.mx</a><br><a href="#">pedidos@x-lasers.mx</a></p></div></div>
+        <div class="ccard"><div class="ccard-ico">📸</div><div><h4>Redes sociales</h4><p><a href="https://www.instagram.com/grabadolaserm">@xlasers.mx</a> en Instagram<br><a href="#">X-Lasers Oficial</a> en Facebook</p></div></div>
         <div class="chours">
           <h4>🕐 Horario de atención</h4>
           <div class="hrow"><span>Lunes – Viernes</span><span>9:00 – 18:00</span></div>
@@ -357,7 +483,7 @@
       <div class="form-card">
         <div class="form-card-hd">
           <div class="fhd-icon">💬</div>
-          <div><h3>Envíanos un mensaje</h3><p>Te respondemos en menos de 24 h</p></div>
+          <div><h3>Envíanos un mensaje</h3><p>Respuesta en menos de 24 h</p></div>
         </div>
         <div class="form-body">
           <div class="ffield"><label>Nombre *</label><input type="text" id="ct-name" placeholder="Tu nombre"></div>
@@ -402,10 +528,8 @@
       <div class="secname">Método de pago</div>
       <select class="cinput-cart" id="shipPay">
         <option value="">Selecciona método</option>
-        <option>Tarjeta de Crédito</option>
-        <option>Tarjeta de Débito</option>
-        <option>PayPal</option>
-        <option>Transferencia bancaria</option>
+        <option>Tarjeta de Crédito</option><option>Tarjeta de Débito</option>
+        <option>PayPal</option><option>Transferencia bancaria</option>
         <option>Efectivo (OXXO Pay)</option>
       </select>
     </div>
