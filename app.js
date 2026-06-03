@@ -44,36 +44,39 @@ function goTo(id) {
    SVG LLAVERO
 ───────────────────────────────────── */
 function svgLlavero(variant = 0) {
-  const fills = ['#8c5a2a', '#7a4e22', '#9e6535'];
-  const f = fills[variant % fills.length];
-  return `<svg class="pcard-svg" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" height="120">
+  const midColors = ['#b07038', '#9a6030', '#c08040'];
+  const m = midColors[variant % midColors.length];
+  return `<svg class="pcard-svg" viewBox="0 0 200 165" xmlns="http://www.w3.org/2000/svg" height="125">
     <defs>
       <linearGradient id="wg${variant}" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%"   stop-color="#6b3f1a"/>
-        <stop offset="50%"  stop-color="${f}"/>
-        <stop offset="100%" stop-color="#4e2e0e"/>
+        <stop offset="0%"   stop-color="#7a4e22"/>
+        <stop offset="50%"  stop-color="${m}"/>
+        <stop offset="100%" stop-color="#5a3412"/>
       </linearGradient>
       <linearGradient id="ws${variant}" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%"   stop-color="#f0c060" stop-opacity="0"/>
-        <stop offset="40%"  stop-color="#f0c060" stop-opacity="0.2"/>
-        <stop offset="100%" stop-color="#f0c060" stop-opacity="0"/>
+        <stop offset="0%"   stop-color="rgba(255,255,255,0)"/>
+        <stop offset="40%"  stop-color="rgba(255,255,255,0.28)"/>
+        <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
       </linearGradient>
-      <filter id="gw${variant}">
-        <feGaussianBlur stdDeviation="1.5" result="b"/>
+      <filter id="gw${variant}" x="-10%" y="-10%" width="120%" height="120%">
+        <feGaussianBlur stdDeviation="1.8" result="b"/>
         <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
       </filter>
+      <filter id="sh${variant}">
+        <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(0,0,0,0.15)"/>
+      </filter>
     </defs>
-    <circle cx="100" cy="16" r="12" fill="none" stroke="#c87941" stroke-width="3"/>
-    <circle cx="100" cy="16" r="5"  fill="none" stroke="#c87941" stroke-width="1.8"/>
-    <line x1="100" y1="28" x2="100" y2="38" stroke="#c87941" stroke-width="2.5"/>
-    <rect x="15" y="38" width="170" height="100" rx="16" fill="url(#wg${variant})" stroke="#c87941" stroke-width="0.8"/>
-    <path d="M19 62 Q100 56 181 62" fill="none" stroke="rgba(60,30,8,0.4)" stroke-width="0.9"/>
-    <path d="M19 78 Q100 72 181 78" fill="none" stroke="rgba(60,30,8,0.3)" stroke-width="0.9"/>
-    <path d="M19 94 Q100 88 181 94" fill="none" stroke="rgba(60,30,8,0.22)" stroke-width="0.9"/>
-    <path d="M19 110 Q100 104 181 110" fill="none" stroke="rgba(60,30,8,0.15)" stroke-width="0.9"/>
-    <rect x="19" y="42" width="18" height="88" rx="7" fill="url(#ws${variant})"/>
-    <line x1="35" y1="80" x2="165" y2="80" stroke="#ff8c00" stroke-width="0.8" opacity="0.7" filter="url(#gw${variant})"/>
-    <line x1="40" y1="93" x2="160" y2="93" stroke="#ff8c00" stroke-width="0.8" opacity="0.45"/>
+    <circle cx="100" cy="16" r="12" fill="none" stroke="#8a6030" stroke-width="3" filter="url(#sh${variant})"/>
+    <circle cx="100" cy="16" r="5.5" fill="none" stroke="#a07840" stroke-width="1.8"/>
+    <line x1="100" y1="28" x2="100" y2="38" stroke="#8a6030" stroke-width="2.5"/>
+    <rect x="14" y="38" width="172" height="108" rx="18" fill="url(#wg${variant})" stroke="rgba(120,80,30,0.4)" stroke-width="0.8" filter="url(#sh${variant})"/>
+    <path d="M18 62 Q100 56 186 62"  fill="none" stroke="rgba(50,25,5,0.3)"  stroke-width="1"/>
+    <path d="M18 78 Q100 72 186 78"  fill="none" stroke="rgba(50,25,5,0.22)" stroke-width="1"/>
+    <path d="M18 94 Q100 88 186 94"  fill="none" stroke="rgba(50,25,5,0.16)" stroke-width="1"/>
+    <path d="M18 110 Q100 104 186 110" fill="none" stroke="rgba(50,25,5,0.11)" stroke-width="1"/>
+    <rect x="18" y="42" width="22" height="96" rx="9" fill="url(#ws${variant})" opacity="0.75"/>
+    <line x1="34" y1="82" x2="166" y2="82" stroke="#3d5c3f" stroke-width="0.9" opacity="0.65" filter="url(#gw${variant})"/>
+    <line x1="40" y1="95" x2="160" y2="95" stroke="#3d5c3f" stroke-width="0.9" opacity="0.4"/>
   </svg>`;
 }
 
@@ -252,11 +255,11 @@ function drawCV() {
   const W = CV.width, H = CV.height;
   cx.clearRect(0, 0, W, H);
 
-  // Fondo llavero madera
+  // Fondo llavero madera — tema claro
   const wg = cx.createLinearGradient(0, 0, W, H);
-  wg.addColorStop(0,   '#4e2e0e');
-  wg.addColorStop(0.5, '#8c5a2a');
-  wg.addColorStop(1,   '#4e2e0e');
+  wg.addColorStop(0,   '#7a4e22');
+  wg.addColorStop(0.5, '#b07038');
+  wg.addColorStop(1,   '#5a3412');
   cx.fillStyle = wg;
   cx.beginPath(); cx.roundRect(28, 14, W - 56, H - 28, 22); cx.fill();
 
@@ -264,26 +267,28 @@ function drawCV() {
   cx.lineWidth = 0.9;
   for (let i = 0; i < 8; i++) {
     const gy = 42 + i * 24;
-    cx.strokeStyle = `rgba(50,25,5,${0.35 - i * 0.03})`;
+    cx.strokeStyle = `rgba(40,18,4,${0.28 - i * 0.025})`;
     cx.beginPath(); cx.moveTo(30, gy); cx.quadraticCurveTo(W/2, gy - 7, W - 30, gy); cx.stroke();
   }
 
-  // Brillo
-  cx.strokeStyle = 'rgba(200,121,65,0.3)'; cx.lineWidth = 1.5;
+  // Borde
+  cx.strokeStyle = 'rgba(120,80,30,0.4)'; cx.lineWidth = 1.2;
   cx.beginPath(); cx.roundRect(28, 14, W - 56, H - 28, 22); cx.stroke();
+
+  // Brillo blanco
   const wshine = cx.createLinearGradient(32, 0, 58, 0);
-  wshine.addColorStop(0,   'rgba(240,192,96,0)');
-  wshine.addColorStop(0.5, 'rgba(240,192,96,0.18)');
-  wshine.addColorStop(1,   'rgba(240,192,96,0)');
+  wshine.addColorStop(0,   'rgba(255,255,255,0)');
+  wshine.addColorStop(0.5, 'rgba(255,255,255,0.22)');
+  wshine.addColorStop(1,   'rgba(255,255,255,0)');
   cx.fillStyle = wshine;
   cx.beginPath(); cx.roundRect(32, 18, 20, H - 36, 8); cx.fill();
 
   // Argolla
-  cx.strokeStyle = '#c87941'; cx.lineWidth = 4;
+  cx.strokeStyle = '#8a6030'; cx.lineWidth = 4;
   cx.beginPath(); cx.arc(W/2, 10, 11, 0, Math.PI * 2); cx.stroke();
-  cx.strokeStyle = '#1a0f05'; cx.lineWidth = 2;
+  cx.strokeStyle = '#f0e8d8'; cx.lineWidth = 2;
   cx.beginPath(); cx.arc(W/2, 10, 5, 0, Math.PI * 2); cx.stroke();
-  cx.strokeStyle = '#c87941'; cx.lineWidth = 2.5;
+  cx.strokeStyle = '#8a6030'; cx.lineWidth = 2.5;
   cx.beginPath(); cx.moveTo(W/2, 21); cx.lineTo(W/2, 28); cx.stroke();
 
   // Capas usuario
