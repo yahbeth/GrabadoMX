@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>X-Lasers — Llaveros Grabados con Precisión</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,9 +13,7 @@
 <div id="loginModal" onclick="if(event.target===this)hideLogin()">
   <div class="lcard">
     <div class="lcard-top">
-      <div class="lcard-brand">
-        <span class="lx">X</span><span class="ll">-LASERS</span>
-      </div>
+      <img src="logo.jpeg" class="logo-modal" alt="X-Lasers">
       <p>Accede a tu cuenta</p>
     </div>
     <div class="ltabs">
@@ -51,11 +49,8 @@
 <nav id="mainNav">
   <div class="nav-inner">
     <a class="logo" href="#" onclick="goTo('home');return false">
-      <div class="logo-x">X</div>
-      <div class="logo-text">
-        <span class="logo-name">-LASERS</span>
-        <span class="logo-sub">Grabado de precisión</span>
-      </div>
+      <img src="logo.jpeg" class="logo-img" alt="X-Lasers">
+      <span class="logo-tagline">Grabado de precisión</span>
     </a>
     <div class="nav-tabs">
       <button class="ntab active" data-p="home"     onclick="goTo('home')">Inicio</button>
@@ -121,53 +116,12 @@
       </div>
     </div>
     <div class="hero-visual">
-      <div class="keychain-showcase">
-        <div class="kc-glow"></div>
-        <svg class="kc-svg" viewBox="0 0 220 180" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="wg1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%"   stop-color="#6b3f1a"/>
-              <stop offset="45%"  stop-color="#a06030"/>
-              <stop offset="100%" stop-color="#4e2e0e"/>
-            </linearGradient>
-            <linearGradient id="wshine" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%"   stop-color="#f0c060" stop-opacity="0"/>
-              <stop offset="35%"  stop-color="#f0c060" stop-opacity="0.22"/>
-              <stop offset="100%" stop-color="#f0c060" stop-opacity="0"/>
-            </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="2.5" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-          <!-- Ring -->
-          <circle cx="110" cy="18" r="13" fill="none" stroke="#c87941" stroke-width="3.5"/>
-          <circle cx="110" cy="18" r="6"  fill="none" stroke="#c87941" stroke-width="2"/>
-          <line x1="110" y1="31" x2="110" y2="42" stroke="#c87941" stroke-width="3"/>
-          <!-- Body -->
-          <rect x="20" y="42" width="180" height="120" rx="18" fill="url(#wg1)" stroke="#c87941" stroke-width="1"/>
-          <!-- Wood grain -->
-          <path d="M24 72 Q110 66 196 72" fill="none" stroke="rgba(70,35,10,0.4)" stroke-width="1"/>
-          <path d="M24 88 Q110 82 196 88" fill="none" stroke="rgba(70,35,10,0.3)" stroke-width="1"/>
-          <path d="M24 104 Q110 98 196 104" fill="none" stroke="rgba(70,35,10,0.25)" stroke-width="1"/>
-          <path d="M24 120 Q110 114 196 120" fill="none" stroke="rgba(70,35,10,0.18)" stroke-width="1"/>
-          <!-- Shine -->
-          <rect x="24" y="46" width="22" height="108" rx="8" fill="url(#wshine)"/>
-          <!-- Laser engraving text -->
-          <text x="110" y="97" text-anchor="middle" font-family="Bebas Neue, sans-serif" font-size="22" fill="#ff8c00" opacity="0.9" filter="url(#glow)">X-LASERS</text>
-          <line x1="45" y1="108" x2="175" y2="108" stroke="#ff8c00" stroke-width="0.8" opacity="0.5"/>
-          <text x="110" y="124" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#f0c060" opacity="0.7" letter-spacing="3">GRABADO LÁSER</text>
-          <!-- Laser scan line animation -->
-          <line x1="22" y1="42" x2="198" y2="42" stroke="#ff8c00" stroke-width="1.5" opacity="0.9">
-            <animate attributeName="y1" from="42" to="162" dur="2.5s" repeatCount="indefinite"/>
-            <animate attributeName="y2" from="42" to="162" dur="2.5s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0;0.9;0.9;0" keyTimes="0;0.05;0.95;1" dur="2.5s" repeatCount="indefinite"/>
-          </line>
-          <rect x="22" y="42" width="176" height="4" fill="rgba(255,140,0,0.15)">
-            <animate attributeName="y" from="42" to="158" dur="2.5s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.05;0.95;1" dur="2.5s" repeatCount="indefinite"/>
-          </rect>
-        </svg>
+      <div class="hero-logo-showcase">
+        <div class="hlc-ring hlc-ring1"></div>
+        <div class="hlc-ring hlc-ring2"></div>
+        <div class="hlc-glow"></div>
+        <img src="logo.jpeg" class="hero-logo-img" alt="X-Lasers Logo">
+        <div class="hlc-laser-line"></div>
       </div>
     </div>
   </section>
